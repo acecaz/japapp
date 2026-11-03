@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GitHub Pages 測試頁面</title>
+    <style>
+        :root {
+            --bg-color: #f4f6f9;
+            --text-color: #333333;
+            --card-bg: #ffffff;
+            --primary-color: #007bff;
+            --primary-hover: #0056b3;
+        }
+
+        [data-theme="dark"] {
+            --bg-color: #1a1a2e;
+            --text-color: #e6e6e6;
+            --card-bg: #16213e;
+            --primary-color: #0f3460;
+            --primary-hover: #533483;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .container {
+            background-color: var(--card-bg);
+            padding: 2.5rem;
+            border-radius: 12px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            max-width: 400px;
+            width: 90%;
+            transition: background-color 0.3s;
+        }
+
+        h1 {
+            margin-top: 0;
+            font-size: 1.8rem;
+        }
+
+        p {
+            line-height: 1.6;
+        }
+
+        .counter-box {
+            font-size: 1.2rem;
+            margin: 1.5rem 0;
+            font-weight: bold;
+        }
+
+        button {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            margin: 0.3rem;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background-color 0.2s;
+        }
+
+        button:hover {
+            background-color: var(--primary-hover);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>🚀 GitHub Pages 測試頁面</h1>
+        <p>這是一個包含 JavaScript 互動效果的靜態 HTML 範例。</p>
+
+        <div class="counter-box">
+            點擊次數：<span id="click-count">0</span>
+        </div>
+
+        <button id="click-btn">點我加 1</button>
+        <button id="theme-btn">切換深色模式</button>
+    </div>
+
+    <script>
+        // JavaScript 邏輯
+        let count = 0;
+        const countDisplay = document.getElementById('click-count');
+        const clickBtn = document.getElementById('click-btn');
+        const themeBtn = document.getElementById('theme-btn');
+
+        // 按鈕點擊計數
+        clickBtn.addEventListener('click', () => {
+            count++;
+            countDisplay.textContent = count;
+        });
+
+        // 主題切換 (Light / Dark mode)
+        themeBtn.addEventListener('click', () => {
+            const currentTheme = document.body.getAttribute('data-theme');
+            if (currentTheme === 'dark') {
+                document.body.removeAttribute('data-theme');
+                themeBtn.textContent = '切換深色模式';
+            } else {
+                document.body.setAttribute('data-theme', 'dark');
+                themeBtn.textContent = '切換淺色模式';
+            }
+        });
+    </script>
+
+</body>
+</html>
